@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="myName">Kyrollos Zakaria</string>
+    <string name="star_image">star image</string>
+    <string name="myBio">I am a technophile who is constantly exploring new diverse fields. I am developing myself
+        on many levels: Practicing CP to enhance my design thinking skills; Encountering different
+        /platforms such as AR/Unity, Django, Android Studio. And I am always looking for something new to
+        learn. \n\n I am interested in diverse fields. I love development, I am passionate about automating task
+        we, humans, do using innovative technologies. Also, I am very interested in Quantum Computing especially
+        its effects on the current cyber security technologies.
+        I am an innovative person. I try to always look at problems from different angles. I have experience in
+        various fields such as: AR with Unity , Backend Development with Django, C++ ,OOP, Java and Android
+        development.And I am always passionate to explore new fields in Technology.I am a team player and good at
+        communicating with others. \n\n
+
+https://www.linkedin.com/in/kyrollos-zakaria-soliman-aa4233204/ \n\n
+https://drive.google.com/file/d/1sVKHQLBY8SWmBMuS4CnxO9nPLWfseQvA/view?usp=sharing </string>
+    <string name="what_is_your_nickname">what is your nickname?</string>
+    <string name="done">Done</string>
+</resources>
