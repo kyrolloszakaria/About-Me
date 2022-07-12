@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Use a data block to declare variables. -->
+    <data>
+        <variable
+            name="myName"
+            type="com.example.aboutme.MyName" />
+    </data>
+<LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,7 +18,7 @@
         android:id="@+id/name_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/myName"
+        android:text="@={myName.name}"
         android:textAlignment="center"
         style="@style/name_style" />
 
@@ -22,7 +30,9 @@
         android:ems="10"
         android:hint="@string/what_is_your_nickname"
         android:inputType="textPersonName"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:text="@={myName.nickname}"
+        />
 
     <Button
         android:id="@+id/done_button"
@@ -41,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text=""
+        android:text="@={myName.nickname}"
         android:visibility="gone"
         android:textAlignment="center" />
 
@@ -82,3 +92,4 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+</layout>

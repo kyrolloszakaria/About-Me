@@ -5,26 +5,32 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.databinding.DataBindingUtil
 import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val myName: MyName = MyName("Kyrollos Zakaria")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        // Set the value of the myName variable that is declared and used in the layout file.
+        binding.myName = myName
         binding.doneButton.setOnClickListener{addNickName(it)}
     }
 
     private fun addNickName(view: View) {
-        val nickNameText = binding.nicknameText
-        val nicknameEdit = binding.nicknameEdit
-        nickNameText.text = nicknameEdit.text
-        binding.doneButton.visibility = View.GONE
-        nicknameEdit.visibility = View.GONE
-        nickNameText.visibility = View.VISIBLE
-
+        binding.apply {
+            // Set the text for nicknameText to the value in nicknameEdit.
+            myName?.nickname = nicknameEdit.text.toString()
+            // Invalidate all binding expressions and request a new rebind to refresh UI
+            invalidateAll()
+            // Change Visibility:
+            // NOTE: you do not have to write binding.nicknameEdit because of the apply function:
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
+        }
         // Hide the keyboard.
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
